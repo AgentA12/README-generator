@@ -2,11 +2,31 @@ const fs = require("fs");
 const generateMarkdown = require("./utils/generateMarkdown.js");
 const promptUser = require("./utils/promptUser.js");
 
+let lorem = {
+  title: "README.md Generator",
+  questionOne: "this is a answer to question one",
+  questionTwo: "this is a answer to question two",
+  questionThree: "this is a answer to question three",
+  installation: "download and clone the repository to get started",
+  usage: "use a command line and enter node index.js",
+  credits: "credits go to me",
+  features: "create a readme file",
+  howToContribute: "i do not accept contributiions",
+  licenseConfirm: true,
+  license: "MIT",
+  tests: "current no writtin tests",
+  questions: "email me for questions",
+};
+
 function concatDescription(userAnswers) {
   let description =
     userAnswers.questionOne +
+    " " +
     userAnswers.questionTwo +
+    " " +
     userAnswers.questionThree;
+
+  console.log(description);
 
   delete userAnswers.questionOne;
   delete userAnswers.questionTwo;
@@ -26,21 +46,13 @@ function writeToFile(fileName, data) {
 
 // TODO: Create a function to initialize app
 function init() {
-  promptUser().then((response) => {
-    let formatedResponse = concatDescription(response);
-    let markdown = generateMarkdown(formatedResponse);
-    writeToFile("./dist/README.md", markdown, (error) => {
-      console.log("oops");
-    });
+  //promptUser().then((response) => {
+  let formatedResponse = concatDescription(lorem);
+  let markdown = generateMarkdown(formatedResponse);
+  writeToFile("./dist/README.md", markdown, (error) => {
+    console.log("oops");
   });
-
-  // .then((anwsered) => {
-  //   console.log(anwsered.title);
-  //   writeToFile("./dist/README.md", anwsered);
-  // })
-  // .catch((error) => {
-  //   console.log(error);
-  // });
+  //});
 }
 
 // Function call to initialize app
