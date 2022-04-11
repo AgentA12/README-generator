@@ -13,74 +13,73 @@ const questions = [
   { features: "list the features of the project" },
   { howToContribute: "How does someone contribute?" },
   { license: "Include a license" },
+  { tests: "give examples of your tests" },
 ];
 
 function promptUser() {
-  inquirer
-    .prompt([
-      {
-        type: "input",
-        name: questions[0],
-        message: `${questions[0].title}`,
-      },
+  return inquirer.prompt([
+    {
+      type: "input",
+      name: Object.keys(questions[0]),
+      message: `${questions[0].title}`,
+    },
 
-      {
-        type: "input",
-        name: questions[1][0],
-        message: `${questions[1][0].questionOne}`,
-      },
-      {
-        type: "input",
-        name: questions[1][1],
-        message: `${questions[1][1].questionTwo}`,
-      },
-      {
-        type: "input",
-        name: questions[1][2],
-        message: `${questions[1][2].questionThree}`,
-      },
-      {
-        type: "input",
-        name: questions[2],
-        message: `${questions[2].installation}`,
-      },
+    {
+      type: "input",
+      name: Object.keys(questions[1][0]),
+      message: `${questions[1][0].questionOne}`,
+    },
+    {
+      type: "input",
+      name: Object.keys(questions[1][1]),
+      message: `${questions[1][1].questionTwo}`,
+    },
+    {
+      type: "input",
+      name: Object.keys(questions[1][2]),
+      message: `${questions[1][2].questionThree}`,
+    },
+    {
+      type: "input",
+      name: Object.keys(questions[2]),
+      message: `${questions[2].installation}`,
+    },
 
-      {
-        type: "input",
-        name: questions[3],
-        message: `${questions[3].usage}`,
-      },
+    {
+      type: "input",
+      name: Object.keys(questions[3]),
+      message: `${questions[3].usage}`,
+    },
 
-      {
-        type: "input",
-        name: questions[4],
-        message: `${questions[4].credits}`,
-      },
+    {
+      type: "input",
+      name: Object.keys(questions[4]),
+      message: `${questions[4].credits}`,
+    },
 
-      {
-        type: "input",
-        name: questions[5],
-        message: `${questions[5].features}`,
-      },
+    {
+      type: "input",
+      name: Object.keys(questions[5]),
+      message: `${questions[5].features}`,
+    },
 
-      {
-        type: "input",
-        name: questions[6],
-        message: `${questions[6].howToContribute}`,
-      },
+    {
+      type: "input",
+      name: Object.keys(questions[6]),
+      message: `${questions[6].howToContribute}`,
+    },
 
-      {
-        type: "input",
-        name: questions[7],
-        message: `${questions[7].license}`,
-      },
-    ])
-    .then((res) => {
-      console.log(res);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+    {
+      type: "input",
+      name: Object.keys(questions[7]),
+      message: `${questions[7].license}`,
+    },
+    {
+      type: "input",
+      name: Object.keys(questions[8]),
+      message: `${questions[8].tests}`,
+    },
+  ]);
 }
 
-promptUser();
+module.exports = promptUser;
