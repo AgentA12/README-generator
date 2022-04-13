@@ -10,15 +10,16 @@ let lorem = {
   features: "f",
   howToContribute: "f",
   licenseConfirm: true,
-  license: "Apache",
+  license: "Boost",
   tests: "y",
   confirmQuestions: true,
   questionsEmail: "df",
-  questionsGithub: "df",
+  questionsGithub: "agenta12",
   questionOne: "question answer",
   questionTwo: "anwser",
   questionThree: "the anwsers",
 };
+
 function concatDescription(userAnswers) {
   let description =
     userAnswers.questionOne +
@@ -44,13 +45,13 @@ function writeToFile(fileName, data) {
 
 // TODO: Create a function to initialize app
 function init() {
-  //promptUser().then((response) => {
-  let formatedResponse = concatDescription(lorem);
+  promptUser().then((response) => {
+    let formatedResponse = concatDescription(response);
 
-  let markdown = generateMarkdown(formatedResponse);
+    let markdown = generateMarkdown(formatedResponse);
 
-  writeToFile("./dist/README.md", markdown);
-  //});
+    writeToFile("./dist/README.md", markdown);
+  });
 }
 // Function call to initialize app
 init();

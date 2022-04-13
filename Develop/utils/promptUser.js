@@ -102,7 +102,7 @@ function promptUser() {
     {
       type: "input",
       name: "questionsGithub",
-      message: "Enter your github",
+      message: "Enter your github username",
       when: ({ confirmQuestions }) => {
         if (confirmQuestions) {
           return true;
