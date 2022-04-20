@@ -41,14 +41,17 @@ function renderLicenseBadge(markdownData) {
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
 function renderLicenseLink(license) {
-  console.log(license);
   if (!license) return "";
   for (i = 0; i < licenses.length; i++) {
     if (licenses[i][license]) {
-      console.log(licenses[i]["link"]);
       return `[${licenses[i]["link"]}](${licenses[i]["link"]})`;
     }
   }
+}
+
+function renderLicenseMdLink(license) {
+  if (!license) return "";
+  return `- [License](#License-Notice)`;
 }
 
 // TODO: Create a function that returns the license section of README
@@ -69,7 +72,7 @@ function questionsFunc(answerData) {
   return `
   ## Questions 
 
-  If there are any further questions you can reach me at ${answerData.questionsEmail}  
+  If there are any further questions you can reach me at: ${answerData.questionsEmail}  
   See my github: [https://github.com/${answerData.questionsGithub}?tab=repositories](https://github.com/${answerData.questionsGithub}?tab=repositories)
   `;
 }
@@ -87,7 +90,7 @@ function generateMarkdown(data) {
  
   ***
 
-  ## Description Of Project
+  ## Project Description 
 
   ${data.description}
 
@@ -97,10 +100,10 @@ function generateMarkdown(data) {
   - [Usage](#Usage)
   - [Credits](#Credits)
   - [Features](#Features)
-  - [How-To-Contribute](#Contribute)
+  - [How-To-Contribute](#Contributing)
   - [Tests](#Tests)
   ${includeLink(data)}
-  - [License](#License-Notice)
+  ${renderLicenseMdLink(data.license)}
 
   ## Installation 
   \`\`\`
@@ -118,7 +121,7 @@ function generateMarkdown(data) {
 
   ${data.credits}
 
-  ## Contribute
+  ## Contributing
 
   ${data.howToContribute}
  
@@ -133,6 +136,3 @@ function generateMarkdown(data) {
 }
 
 module.exports = generateMarkdown;
-// module.exports = renderLicenseBadge;
-// module.exports = renderLicenseLink;
-// module.exports = renderLicenseSection;

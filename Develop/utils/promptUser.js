@@ -9,18 +9,9 @@ function promptUser() {
     },
     {
       type: "input",
-      name: "questionOne",
-      message: "Why did you build the project?",
-    },
-    {
-      type: "input",
-      name: "questionTwo",
-      message: "What problem does it solve",
-    },
-    {
-      type: "input",
-      name: "questionThree",
-      message: "What did you learn?",
+      name: "description",
+      message: `Provide a description of the project. 
+Example: 'why did you build it?, what problem does it solve?, what did you learn?'\n`,
     },
     {
       type: "input",
